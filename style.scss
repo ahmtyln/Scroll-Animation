@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$bcgcolor : rgb(202, 202, 202);
+$bcgcolorContent : rgb(81, 81, 192);
+$fontsize : 30px;
+@mixin boxcenter {
+    width: 100%;
+    margin-top: 5vh;
+    background-color: $bcgcolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+@mixin contentstyle {
+    width: 30%;
+    height: 40vh;
+    margin-top: 10vh;
+    background-color: $bcgcolorContent;
+    color: white;
+    font-size: $fontsize;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-250%);
+    transition: transform 0.5s ease-in;
+    border-radius: 10px;
+}
+@mixin contentactive{
+    transform: translateX(0);
+}
+body{
+    width: 100%;
+    min-height: 300vh;
+    background-color: $bcgcolor;
+    .container{
+        @include boxcenter;
+        .p{
+            margin-bottom: 10vh;
+            font-size: $fontsize;
+            font-weight: 800;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+        }
+        .content{
+            @include contentstyle;
+        }
+        .active{
+            @include contentactive;
+        }
+    }
+}
+
